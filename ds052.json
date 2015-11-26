@@ -1,39 +1,39 @@
 {
-  "run_model":{
+  "run_model": {
     "Level": "Run",
-		"DependantVariable": "task-reversalweatherprediction",
-		"Columns":{
-			"pos": {
-				"Variable": "trial_type",
-				"Level": "positive feedback",
-				"HRF": true
-			},
-			"neg": {
-				"Variable": "trial_type",
-				"Level": "negative feedback",
-				"HRF": true
-			}
-		},
-    "Contrasts":{
+    "DependantVariable": "task-reversalweatherprediction",
+    "Columns": {
+      "pos": {
+        "Variable": "trial_type",
+        "Level": "positive feedback",
+        "HRF": true
+      },
+      "neg": {
+        "Variable": "trial_type",
+        "Level": "negative feedback",
+        "HRF": true
+      }
+    },
+    "Contrasts": {
       "pos_vs_neg_contrast": {
-				"Variables": ["pos", "neg"],
-				"Vector": [1 , -1]
-	    }
-  	}
-	},
+        "Variables": ["pos", "neg"],
+        "Vector": [1, -1]
+      }
+    }
+  },
   "group_model": {
     "Level": "Group",
-		"DependantVariable": "pos_vs_neg",
-		"Columns": {
-			"group_mean": {
-				"Variable": "1"
-			}
-		},
+    "DependantVariable": "pos_vs_neg",
+    "Columns": {
+      "group_mean": {
+        "Variable": "1"
+      }
+    },
     "Contrasts": {
-			"pos_vs_neg_group": {
-				"Variables": ["group_mean"],
-				"Vector": [1]
-			}
+      "pos_vs_neg_group": {
+        "Variables": ["group_mean"],
+        "Vector": [1]
+      }
     }
   }
 }

@@ -1,0 +1,47 @@
+{
+  "run_model": {
+    "Level": "Run",
+    "DependantVariable": "task-flankertask",
+    "AdditionalVariablesCommand": "calculate_interaction_terms.py",
+    "Columns": {
+      "congruent": {
+        "Variable": "Stimulus",
+        "Level": "congruent",
+        "HRF": true
+      },
+      "incongruent": {
+        "Variable": "Stimulus",
+        "Level": "incongruent",
+        "HRF": true
+      },
+      "ResponseTime_congruent": {
+        "Variable": "ResponseTime_incongruent",
+        "HRF": true
+      }
+    },
+    "Contrasts": {
+      "rt_congruent_vs_incongruent": {
+        "Variables": [
+          "ResponseTime_congruent",
+          "ResponseTime_incongruent"
+        ],
+        "Vector": [1, -1]
+      }
+    }
+  },
+  "group_model": {
+    "Level": "Group",
+    "DependantVariable": "rt_congruent_vs_incongruent",
+    "Columns": {
+      "group_mean": {
+        "Variable": "1"
+      }
+    },
+    "Contrasts": {
+      "rt_congruent_vs_incongruent_group": {
+        "Variables": ["group_mean"],
+        "Vector": [1]
+      }
+    }
+  }
+}
