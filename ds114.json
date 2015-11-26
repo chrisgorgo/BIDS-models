@@ -1,0 +1,82 @@
+{
+  "run_model":{
+    "Level": "Run",
+		"DependantVariable": "task-fingerfootlips",
+		"Columns":{
+			"finger": {
+				"Variable": "trial_type",
+				"Level": "Finger",
+				"HRF": true
+			},
+			"foot": {
+				"Variable": "trial_type",
+				"Level": "Foot",
+				"HRF": true
+			},
+			"lips": {
+				"Variable": "trial_type",
+				"Level": "Lips",
+				"HRF": true
+			}
+		},
+    "Contrasts":{
+      "finger_contrast": {
+				"Variables": ["finger"],
+				"Vector": [1]
+	    },
+			"foot_contrast": {
+				"Variables": ["foot"],
+				"Vector": [1]
+			},
+			"lips_contrast": {
+				"Variables": ["lips"],
+				"Vector": [1]
+			}
+  	}
+	},
+  "group_model_finger": {
+    "Level": "Group",
+		"DependantVariable": "finger_contrast",
+		"Columns": {
+			"group_mean": {
+				"Variable": "1"
+			}
+		},
+    "Contrasts": {
+			"finger_group": {
+				"Variables": ["group_mean"],
+				"Vector": [1]
+			}
+    }
+  },
+	"group_model_foot": {
+    "Level": "Group",
+		"DependantVariable": "foot_contrast",
+		"Columns": {
+			"group_mean": {
+				"Variable": "1"
+			}
+		},
+    "Contrasts": {
+			"foot_group": {
+				"Variables": ["group_mean"],
+				"Vector": [1]
+			}
+    }
+  },
+	"group_model_lips": {
+    "Level": "Group",
+		"DependantVariable": "lips_contrast",
+		"Columns": {
+			"group_mean": {
+				"Variable": "1"
+			}
+		},
+    "Contrasts": {
+			"lips_group": {
+				"Variables": ["group_mean"],
+				"Vector": [1]
+			}
+    }
+  }
+}
